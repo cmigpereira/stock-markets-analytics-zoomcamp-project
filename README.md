@@ -1,5 +1,7 @@
 # ETF Pressure Lab
 
+**[Open the Streamlit app](https://stock-markets-analytics-zoomcamp-project.streamlit.app/)**
+
 **Can FINRA short-sale activity improve the decision to buy an ETF sell-off?**
 
 > **Not financial advice.** This project is for educational and research purposes only. Its predictions, signals, and simulated trades are not recommendations to buy, sell, or hold any investment. Past performance and backtested results do not guarantee future results. Investing involves risk, including loss of capital.
