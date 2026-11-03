@@ -1,0 +1,14 @@
+{
+  "SPY": "US equity", "QQQ": "US equity", "IWM": "US equity", "DIA": "US equity",
+  "VTI": "US equity", "RSP": "US equity", "MDY": "US equity",
+  "XLK": "Sector", "XLF": "Sector", "XLE": "Sector", "XLV": "Sector",
+  "XLI": "Sector", "XLP": "Sector", "XLY": "Sector", "XLU": "Sector",
+  "XLB": "Sector", "XLRE": "Sector", "XLC": "Sector", "SMH": "Sector",
+  "XBI": "Sector", "KRE": "Sector", "IYR": "Sector",
+  "EFA": "International", "EEM": "International", "EWJ": "International",
+  "EWZ": "International", "FXI": "International", "INDA": "International",
+  "TLT": "Bonds", "IEF": "Bonds", "SHY": "Bonds", "LQD": "Bonds",
+  "HYG": "Bonds", "TIP": "Bonds", "BND": "Bonds",
+  "GLD": "Commodities", "SLV": "Commodities", "DBC": "Commodities",
+  "USO": "Commodities", "GDX": "Sector"
+}

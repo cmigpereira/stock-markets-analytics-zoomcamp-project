@@ -1,0 +1,41 @@
+name: Refresh ETF research
+on:
+  workflow_dispatch:
+  schedule:
+    # After US close and normal FINRA publication, before the following opening.
+    - cron: "30 2 * * 2-6"
+permissions:
+  contents: read
+concurrency:
+  group: research-refresh
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.9"
+          enable-cache: true
+      - run: uv sync --frozen --python 3.12
+      - uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: etf-data-v1-${{ github.run_id }}
+          restore-keys: etf-data-v1-
+      - run: uv run etf-pressure run --mode download
+      - run: uv run etf-pressure snapshot
+      - run: uv run etf-pressure publish-report --destination artifacts/dashboard.json
+      - uses: actions/cache/save@v4
+        if: success()
+        with:
+          path: data
+          key: etf-data-v1-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: etf-pressure-research
+          # Publish derived research evidence only, never raw snapshots or model binaries.
+          path: artifacts/dashboard.json
+          retention-days: 30
